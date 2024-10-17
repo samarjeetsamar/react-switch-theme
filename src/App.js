@@ -1,14 +1,24 @@
-
+import React from 'react';
 import './App.css';
-import PersistingForm from './components/form';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Theme from './Components/Theme';
+import Login from './Components/Login';
+import Register from './Components/Register';
+import Navbar from './Components/Navbar';
 
 function App() {
- 
   return (
-      <>
-        
-        <PersistingForm />
-      </>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+            <Route>
+                <Route index element={<Theme/>} /> 
+                <Route path="/register" element={<Register/>} /> 
+                <Route path="/login"  element={<Login/>} /> 
+            </Route>
+        </Routes>
+      
+      </BrowserRouter>
   );
 }
 
